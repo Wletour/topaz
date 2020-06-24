@@ -4,6 +4,7 @@
 --
 -----------------------------------
 local ID = require("scripts/zones/Ship_bound_for_Mhaura/IDs")
+require("scripts/globals/zone")
 -----------------------------------
 
 function onInitialize(zone)
