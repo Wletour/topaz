@@ -412,6 +412,7 @@ public:
 
     // Parties and Alliances
     int32 getParty(lua_State* L);
+    int32 getPartyWithTrusts(lua_State* L);
     int32 getPartySize(lua_State* L);               // Get the size of a party in an entity's alliance
     int32 hasPartyJob(lua_State*);
     int32 getPartyMember(lua_State* L);             // Get a character entity from another entity's party or alliance
@@ -500,6 +501,7 @@ public:
     int32 updateEnmityFromCure(lua_State*);
     int32 resetEnmity(lua_State*);             //resets enmity to player for specificed mob
     int32 updateClaim(lua_State*);             // Adds Enmity to player for specified mob and claims
+    int32 hasEnmity(lua_State*);               // Checks if you have ANY enmity with ANY mob in the zone
 
     // Status Effects
     int32 addStatusEffect(lua_State*);         // Adds status effect to character
@@ -583,7 +585,12 @@ public:
     // Pets and Automations
     int32 spawnPet(lua_State*);              // Calls Pet
     int32 despawnPet(lua_State*);            // Despawns Pet
+
     int32 spawnTrust(lua_State*);            // Spawns trust
+    int32 clearTrusts(lua_State*);
+    int32 getTrustID(lua_State*);
+    int32 addSimpleGambit(lua_State*);
+    int32 addFullGambit(lua_State*);
 
     int32 isJugPet(lua_State*);              // If the entity has a pet, test if it is a jug pet.
     int32 hasValidJugPetItem(lua_State*);

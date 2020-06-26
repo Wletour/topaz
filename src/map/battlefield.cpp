@@ -33,6 +33,7 @@ along with this program.  If not, see http://www.gnu.org/licenses/
 #include "entities/charentity.h"
 #include "entities/mobentity.h"
 #include "entities/npcentity.h"
+#include "entities/trustentity.h"
 
 #include "lua/luautils.h"
 
@@ -388,9 +389,9 @@ CBaseEntity* CBattlefield::GetEntity(CBaseEntity* PEntity)
                     return PAlly;
         }
     }
-    else if (PEntity->objtype == TYPE_PET)
+    else if (PEntity->objtype == TYPE_PET || PEntity->objtype == TYPE_TRUST)
     {
-        if (auto POwner = dynamic_cast<CCharEntity*>(static_cast<CPetEntity*>(PEntity)->PMaster))
+        if (auto POwner = dynamic_cast<CCharEntity*>(static_cast<CBattleEntity*>(PEntity)->PMaster))
         {
             for (const auto id : m_EnteredPlayers)
                 if (id == POwner->id)
@@ -454,7 +455,7 @@ bool CBattlefield::RemoveEntity(CBaseEntity* PEntity, uint8 leavecode)
             PEntity->loc.zone->PushPacket(PEntity, CHAR_INRANGE, new CEntityUpdatePacket(PEntity, ENTITY_DESPAWN, UPDATE_ALL_MOB));
             m_NpcList.erase(std::remove_if(m_NpcList.begin(), m_NpcList.end(), check), m_NpcList.end());
         }
-        else if (PEntity->objtype == TYPE_MOB || PEntity->objtype == TYPE_PET)
+        else if (PEntity->objtype == TYPE_MOB || PEntity->objtype == TYPE_PET || PEntity->objtype == TYPE_TRUST)
         {
             // todo: probably need to check allegiance too cause besieged will prolly use > 0x700 too
             // allies targid >= 0x700
