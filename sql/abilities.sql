@@ -227,7 +227,7 @@ INSERT INTO `abilities` VALUES (203,'stutter_step',19,40,4,5,220,521,0,14,2000,0
 INSERT INTO `abilities` VALUES (204,'animated_flourish',19,20,4,30,221,119,0,181,2000,0,6,17.6,0,1,1000,0,0,'WOTG');
 INSERT INTO `abilities` VALUES (205,'desperate_flourish',19,30,4,20,221,127,0,24,2000,0,14,4.4,0,1,0,0,0,'WOTG');
 INSERT INTO `abilities` VALUES (206,'reverse_flourish',19,40,1,30,222,452,0,182,2000,0,6,20.0,0,1,0,0,0,'WOTG');
-INSERT INTO `abilities` VALUES (207'violent_flourish',19,45,4,20,221,522,0,24,2000,0,14,4.4,0,1,0,0,0,'WOTG');
+INSERT INTO `abilities` VALUES (207,'violent_flourish',19,45,4,20,221,522,0,24,2000,0,14,4.4,0,1,0,0,0,'WOTG');
 INSERT INTO `abilities` VALUES (208,'building_flourish',19,50,1,10,222,0,0,220,2000,0,6,20.0,0,1,0,0,0,'WOTG');
 INSERT INTO `abilities` VALUES (209,'wild_flourish',19,60,4,20,222,529,0,24,2000,0,14,4.4,0,1,0,0,0,'WOTG');
 INSERT INTO `abilities` VALUES (210,'tabula_rasa',20,0,1,3600,0,0,0,190,2000,0,6,20.0,0,1,300,0,0,'WOTG');
@@ -626,14 +626,15 @@ INSERT INTO `abilities` VALUES (767,'pentapeck',9,25,257,3,102,0,0,0,2000,0,7,18
 INSERT INTO `abilities` VALUES (768,'tickling_tendrils',9,25,257,1,102,0,0,0,2000,1,6,18.0,0,1,60,0,0,NULL);
 INSERT INTO `abilities` VALUES (769,'stink_bomb',9,25,257,2,102,0,0,0,2000,0,6,19.0,0,1,60,0,0,NULL);
 INSERT INTO `abilities` VALUES (770,'nectarous_deluge',9,25,257,2,102,0,0,0,2000,0,7,18.0,0,1,60,0,0,NULL);
-INSERT INTO `abilities` VALUES (754,'nepenthic_plunge',9,25,257,3,102,0,0,0,2000,0,7,18.0,0,1,60,0,0,NULL);
-INSERT INTO `abilities` VALUES (755,'somersault',9,25,257,1,102,0,0,0,2000,0,6,19.0,0,1,60,0,0,NULL);
-INSERT INTO `abilities` VALUES (757,'foul_waters',9,25,257,255,102,0,0,0,2000,0,6,19.0,0,1,60,0,0,NULL);
-INSERT INTO `abilities` VALUES (758,'pestilent_plume',9,25,257,255,102,0,0,0,2000,0,6,19.0,0,1,60,0,0,NULL);
-INSERT INTO `abilities` VALUES (759,'pecking_flurry',9,25,257,255,102,0,0,0,2000,0,6,18.1,0,1,60,0,0,NULL);
-INSERT INTO `abilities` VALUES (760,'sickle_slash',9,25,257,255,102,0,0,0,2000,0,6,18.0,1,1,60,0,0,NULL);
-INSERT INTO `abilities` VALUES (761,'acid_spray',9,25,257,255,102,0,0,0,2000,0,6,18.0,0,2,60,0,0,NULL);
-INSERT INTO `abilities` VALUES (762,'spider_web',9,25,257,255,102,0,0,0,2000,0,6,18.0,0,2,60,0,0,NULL);
+INSERT INTO `abilities` VALUES (751,'nepenthic_plunge',9,25,257,3,102,0,0,0,2000,0,7,18.0,0,1,60,0,0,NULL);
+INSERT INTO `abilities` VALUES (752,'somersault',9,25,257,1,102,0,0,0,2000,0,6,19.0,0,1,60,0,0,NULL);
+-- INSERT INTO `abilities` VALUES (753,'pacifying_ruby',9,25,257,1,102,0,0,0,2000,0,6,19.0,0,1,60,0,0,NULL);
+INSERT INTO `abilities` VALUES (754,'foul_waters',9,25,257,255,102,0,0,0,2000,0,6,19.0,0,1,60,0,0,NULL);
+INSERT INTO `abilities` VALUES (775,'pestilent_plume',9,25,257,255,102,0,0,0,2000,0,6,19.0,0,1,60,0,0,NULL);
+INSERT INTO `abilities` VALUES (776,'pecking_flurry',9,25,257,255,102,0,0,0,2000,0,6,18.1,0,1,60,0,0,NULL);
+INSERT INTO `abilities` VALUES (777,'sickle_slash',9,25,257,255,102,0,0,0,2000,0,6,18.0,1,1,60,0,0,NULL);
+INSERT INTO `abilities` VALUES (778,'acid_spray',9,25,257,255,102,0,0,0,2000,0,6,18.0,0,2,60,0,0,NULL);
+INSERT INTO `abilities` VALUES (779,'spider_web',9,25,257,255,102,0,0,0,2000,0,6,18.0,0,2,60,0,0,NULL);
 -- INSERT INTO `abilities` VALUES (780,'regal_gash',22,1,1,0,300,0,0,???,2000,0,6,20.0,0,450,900,0,0,NULL);
 -- INSERT INTO `abilities` VALUES (781,'infected_leech',9,25,257,rec,102,0,0,0,2000,0,6,18.0,1,1,60,0,0,NULL); -- ROTZ
 -- INSERT INTO `abilities` VALUES (782,'gloom_spray',9,25,257,rec,102,0,0,0,2000,0,6,18.0,0,2,60,0,0,NULL); -- ROTZ
