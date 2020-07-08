@@ -1019,7 +1019,6 @@ void CCharEntity::OnAbility(CAbilityState& state, action_t& action)
 
         action.id = this->id;
         action.actiontype = PAbility->getActionType();
-        //#TODO: unoffset this
         action.actionid = PAbility->getID();
 
         // #TODO: get rid of this to script, too
