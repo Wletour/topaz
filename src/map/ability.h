@@ -342,7 +342,7 @@ enum ABILITY
     ABILITY_BRAZEN_RUSH        = 323,
     ABILITY_INNER_STRENGTH     = 324,
     ABILITY_ASYLUM             = 325,
-    ABILITY_SUBTLE SORCERY     = 326,
+    ABILITY_SUBTLE_SORCERY     = 326,
     ABILITY_STYMIE             = 327,
     ABILITY_LARCENY            = 328,
     ABILITY_INTERVENE          = 329,
