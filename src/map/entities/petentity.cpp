@@ -198,7 +198,6 @@ void CPetEntity::OnAbility(CAbilityState& state, action_t& action)
 
         action.id = this->id;
         action.actiontype = PAbility->getActionType();
-        //#TODO: unoffset this
         action.actionid = PAbility->getID();
         actionList_t& actionList = action.getNewActionList();
         actionList.ActionTargetID = PTarget->id;
