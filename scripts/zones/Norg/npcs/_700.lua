@@ -69,6 +69,8 @@ function onTrigger(player, npc)
         player:startEvent(172)
     elseif RhapsodiesMission == tpz.mission.id.rov.RING_MY_BELL then
         player:startEvent(283)
+    elseif player:getCharVar('ApocalypseNigh') == 6 and os.time() < player:getCharVar("Apoc_Nigh_Reward") then
+        player:startEvent(235)
     else
         player:startEvent(5)
     end
@@ -96,7 +98,7 @@ function onEventFinish(player, csid, option)
     elseif (csid == 98) then
         player:setCharVar("MissionStatus", 2)
     elseif (csid == 172 and bit.band(option, 0x40000000) == 0) then
-        player:setCharVar("ZilartStatus", 1);
+        player:setCharVar("ZilartStatus", 1)
     elseif csid == 276 then
         -- Clear 1-3 flag
         player:setCharVar("RhapsodiesStatus", 0)

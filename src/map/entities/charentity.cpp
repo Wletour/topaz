@@ -483,32 +483,29 @@ bool CCharEntity::ReloadParty()
 void CCharEntity::RemoveTrust(CTrustEntity* PTrust)
 {
     if (!PTrust->PAI->IsSpawned())
+    {
         return;
+    }
 
-    auto trustIt = std::remove_if(PTrusts.begin(), PTrusts.end(), [PTrust](auto trust) { return PTrust == trust; });
+    auto trustIt = std::find_if(PTrusts.begin(), PTrusts.end(), [PTrust](auto trust) { return PTrust == trust; });
     if (trustIt != PTrusts.end())
     {
         PTrust->PAI->Despawn();
         PTrusts.erase(trustIt);
     }
-    if (PParty != nullptr)
-    {
-        PParty->ReloadParty();
-    }
+
+    ReloadPartyInc();
 }
 
 void CCharEntity::ClearTrusts()
 {
-    if (PTrusts.size() == 0)
+    for (auto PTrust : PTrusts)
     {
-        return;
-    }
-
-    for (auto trust : PTrusts)
-    {
-        trust->PAI->Despawn();
+        PTrust->PAI->Despawn();
     }
     PTrusts.clear();
+
+    ReloadPartyInc();
 }
 
 void CCharEntity::Tick(time_point tick)
@@ -1021,8 +1018,7 @@ void CCharEntity::OnAbility(CAbilityState& state, action_t& action)
 
         action.id = this->id;
         action.actiontype = PAbility->getActionType();
-        //#TODO: unoffset this
-        action.actionid = PAbility->getID() + 16;
+        action.actionid = PAbility->getID();
 
         // #TODO: get rid of this to script, too
         if (PAbility->isPetAbility())
@@ -1152,7 +1148,7 @@ void CCharEntity::OnAbility(CAbilityState& state, action_t& action)
             //{
             //    battleutils::jumpAbility(this, PTarget, 3);
             //    action.messageID = 0;
-            //    this->loc.zone->PushPacket(this, CHAR_INRANGE_SELF, new CMessageBasicPacket(this, PTarget, PAbility->getID() + 16, 0, MSGBASIC_USES_JA));
+            //    this->loc.zone->PushPacket(this, CHAR_INRANGE_SELF, new CMessageBasicPacket(this, PTarget, PAbility->getID(), 0, MSGBASIC_USES_JA));
             //}
 
             //#TODO: move these 3 BST abilities to scripts
@@ -1683,6 +1679,8 @@ void CCharEntity::Die()
 
 void CCharEntity::Die(duration _duration)
 {
+    this->ClearTrusts();
+
     m_deathSyncTime = server_clock::now() + death_update_frequency;
     PAI->ClearStateStack();
     PAI->Internal_Die(_duration);
@@ -1726,6 +1724,23 @@ int32 CCharEntity::GetTimeRemainingUntilDeathHomepoint()
     // We convert the elapsed death time to this total time and subtract it which gives us the remaining time to a forced homepoint
     // Once the returned value here reaches below 360 then the client with force homepoint the character
     return 0x0003A020 - (60 * GetSecondsElapsedSinceDeath());
+}
+
+
+int32 CCharEntity::GetTimeCreated()
+{
+    const char* fmtQuery = "SELECT UNIX_TIMESTAMP(timecreated) FROM chars WHERE charid = %u;";
+
+    int32 ret = Sql_Query(SqlHandle, fmtQuery, id);
+
+    if (ret != SQL_ERROR &&
+        Sql_NumRows(SqlHandle) != 0 &&
+        Sql_NextRow(SqlHandle) == SQL_SUCCESS)
+    {
+        return Sql_GetIntData(SqlHandle, 0);
+    }
+    
+    return 0;
 }
 
 bool CCharEntity::hasMoghancement(uint16 moghancementID)

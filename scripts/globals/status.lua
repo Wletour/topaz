@@ -24,6 +24,7 @@ tpz.zoneMisc =
     TREASURE   = 0x0100, -- Presence in the global zone TreasurePool
     AH         = 0x0200, -- Ability to use the auction house
     YELL       = 0x0400, -- Send and receive /yell commands
+    TRUST      = 0x0800, -- Ability to cast trust magic
 }
 
 ------------------------------------
@@ -816,7 +817,8 @@ tpz.effect =
     DYNAMIS                  = 800,
     MEDITATE                 = 801, -- Dummy effect for SAM Meditate JA
     ELEMENTALRES_DOWN        = 802, -- Elemental resistance down
-    -- PLACEHOLDER           = 803, -- Description
+    FULL_SPEED_AHEAD         = 803, -- Helper for quest: Full Speed Ahead!
+    -- PLACEHOLDER           = 804, -- Description
     -- 803-1022
     -- PLACEHOLDER             = 1023 -- The client dat file seems to have only this many "slots", results of exceeding that are untested.
 }
@@ -2127,11 +2129,13 @@ tpz.MAX_SLOTID  = 15
 
 tpz.objType =
 {
-    PC   = 0x01,
-    NPC  = 0x02,
-    MOB  = 0x04,
-    PET  = 0x08,
-    SHIP = 0x10,
+    PC     = 0x01,
+    NPC    = 0x02,
+    MOB    = 0x04,
+    PET    = 0x08,
+    SHIP   = 0x10,
+    TRUST  = 0x20,
+    FELLOW = 0x40,
 }
 
 ----------------------------------

@@ -1073,7 +1073,8 @@ tpz.regime.bookOnEventFinish = function(player, option, regimeType)
     end
 
     if option == 7 then
-      tpz.hunts.clearHuntVars(player)
+        tpz.hunts.clearHuntVars(player)
+        return
     end
 
     local cost = opt.cost

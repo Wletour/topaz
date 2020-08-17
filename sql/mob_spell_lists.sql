@@ -621,7 +621,7 @@ INSERT INTO `mob_spell_lists` VALUES ('Kam_Lanaut',21,356,76,255);
 INSERT INTO `mob_spell_lists` VALUES ('Kam_Lanaut',21,357,75,255);
 INSERT INTO `mob_spell_lists` VALUES ('Kam_Lanaut',21,359,75,255);
 INSERT INTO `mob_spell_lists` VALUES ('Kam_Lanaut',21,360,75,255);
-INSERT INTO `mob_spell_lists` VALUES ('Kam_Lanaut',21,366,76,255);
+INSERT INTO `mob_spell_lists` VALUES ('Kam_Lanaut',21,366,75,255);
 INSERT INTO `mob_spell_lists` VALUES ('Eald_Narche',22,204,75,255);
 INSERT INTO `mob_spell_lists` VALUES ('Eald_Narche',22,206,75,255);
 INSERT INTO `mob_spell_lists` VALUES ('Eald_Narche',22,208,75,255);
@@ -2528,6 +2528,8 @@ INSERT INTO `mob_spell_lists` VALUES ('Ghul-I-Beaban_BLM',305,179,1,255); -- bli
 INSERT INTO `mob_spell_lists` VALUES ('Saa_Doyi_the_Fervid',306,320,1,255); -- katon_ichi
 INSERT INTO `mob_spell_lists` VALUES ('Frost_Flambeau',307,180,1,255); -- blizzaga_ii
 
+-- Trusts
+
 INSERT INTO `mob_spell_lists` VALUES ('TRUST_Shantotto',308,144,13,255);       -- Fire
 INSERT INTO `mob_spell_lists` VALUES ('TRUST_Shantotto',308,145,38,255);       -- Fire II
 INSERT INTO `mob_spell_lists` VALUES ('TRUST_Shantotto',308,146,62,255);       -- Fire III
@@ -2567,6 +2569,13 @@ INSERT INTO `mob_spell_lists` VALUES ('TRUST_Kupipi',310,3,21,255);            -
 INSERT INTO `mob_spell_lists` VALUES ('TRUST_Kupipi',310,4,41,255);            -- Cure IV
 INSERT INTO `mob_spell_lists` VALUES ('TRUST_Kupipi',310,5,61,255);            -- Cure V
 INSERT INTO `mob_spell_lists` VALUES ('TRUST_Kupipi',310,6,80,255);            -- Cure VI
+INSERT INTO `mob_spell_lists` VALUES ('TRUST_Kupipi',310,14,6,255);            -- Poisona
+INSERT INTO `mob_spell_lists` VALUES ('TRUST_Kupipi',310,15,9,255);            -- Paralyna
+INSERT INTO `mob_spell_lists` VALUES ('TRUST_Kupipi',310,16,14,255);           -- Blindna
+INSERT INTO `mob_spell_lists` VALUES ('TRUST_Kupipi',310,17,19,255);           -- Silena
+INSERT INTO `mob_spell_lists` VALUES ('TRUST_Kupipi',310,18,39,255);           -- Stona
+INSERT INTO `mob_spell_lists` VALUES ('TRUST_Kupipi',310,19,34,255);           -- Viruna
+INSERT INTO `mob_spell_lists` VALUES ('TRUST_Kupipi',310,20,29,255);           -- Cursna
 INSERT INTO `mob_spell_lists` VALUES ('TRUST_Kupipi',310,56,13,255);           -- Slow
 INSERT INTO `mob_spell_lists` VALUES ('TRUST_Kupipi',310,58,6,255);            -- Paralyze
 INSERT INTO `mob_spell_lists` VALUES ('TRUST_Kupipi',310,112,45,255);          -- Flash
@@ -3852,9 +3861,23 @@ INSERT INTO `mob_spell_lists` VALUES ('TRUST_Shantotto_II',428,159,1,255);      
 INSERT INTO `mob_spell_lists` VALUES ('TRUST_Shantotto_II',428,164,21,255);       -- Thunder
 INSERT INTO `mob_spell_lists` VALUES ('TRUST_Shantotto_II',428,169,5,255);        -- Water
 
-INSERT INTO `mob_spell_lists` VALUES ('Siren',429,423,1,255);        -- Massacre Elegy
-INSERT INTO `mob_spell_lists` VALUES ('Siren',429,462,1,255);        -- Magic Finale
-INSERT INTO `mob_spell_lists` VALUES ('Siren',429,873,1,255);        -- Wind Threnody II
+INSERT INTO `mob_spell_lists` VALUES ('Kamlanaut (Apoc Nigh)',429,356,76,255); -- paralyaga
+INSERT INTO `mob_spell_lists` VALUES ('Kamlanaut (Apoc Nigh)',429,357,75,255); -- slowga
+INSERT INTO `mob_spell_lists` VALUES ('Kamlanaut (Apoc Nigh)',429,359,75,255); -- silencega
+INSERT INTO `mob_spell_lists` VALUES ('Kamlanaut (Apoc Nigh)',429,360,75,255); -- dispelga
+INSERT INTO `mob_spell_lists` VALUES ('Kamlanaut (Apoc Nigh)',429,366,76,255); -- graviga
+INSERT INTO `mob_spell_lists` VALUES ('EaldNarche (Apoc Nigh)',430,176,75,255);-- firaga_iii
+INSERT INTO `mob_spell_lists` VALUES ('EaldNarche (Apoc Nigh)',430,181,75,255);-- blizzaga_iii
+INSERT INTO `mob_spell_lists` VALUES ('EaldNarche (Apoc Nigh)',430,186,75,255);-- aeroga_iii
+INSERT INTO `mob_spell_lists` VALUES ('EaldNarche (Apoc Nigh)',430,191,75,255);-- stonega_iii
+INSERT INTO `mob_spell_lists` VALUES ('EaldNarche (Apoc Nigh)',430,196,75,255);-- thundaga_iii
+INSERT INTO `mob_spell_lists` VALUES ('EaldNarche (Apoc Nigh)',430,201,75,255);-- waterga_iii
+INSERT INTO `mob_spell_lists` VALUES ('EaldNarche (Apoc Nigh)',430,274,75,255);-- sleepga_ii
+INSERT INTO `mob_spell_lists` VALUES ('EaldNarche (Apoc Nigh)',430,362,75,255);-- bindga
+
+INSERT INTO `mob_spell_lists` VALUES ('Siren',431,423,1,255);        -- Massacre Elegy
+INSERT INTO `mob_spell_lists` VALUES ('Siren',431,462,1,255);        -- Magic Finale
+INSERT INTO `mob_spell_lists` VALUES ('Siren',431,873,1,255);        -- Wind Threnody II
 
 /*!40000 ALTER TABLE `mob_spell_lists` ENABLE KEYS */;
 UNLOCK TABLES;
