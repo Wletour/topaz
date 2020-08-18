@@ -9,8 +9,8 @@ require("scripts/globals/settings")
 require("scripts/globals/status")
 ---------------------------------------------
 
-function onMobSkillCheck(target,mob,skill)
-    return 1
+function onMobSkillCheck(target, mob, skill)
+    return 0
 end
 
 function onMobWeaponSkill(target, mob, skill)

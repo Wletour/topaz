@@ -4,7 +4,7 @@
 --
 -----------------------------------
 local ID = require("scripts/zones/Beaucedine_Glacier/IDs")
-require("scripts/globals/icanheararainbow")
+require("scripts/quests/i_can_hear_a_rainbow")
 require("scripts/globals/missions")
 require("scripts/globals/conquest")
 require("scripts/globals/zone")
@@ -21,7 +21,7 @@ function onZoneIn( player, prevZone)
     local cs = -1
 
     if prevZone == tpz.zone.DYNAMIS_BEAUCEDINE then -- warp player to a correct position after dynamis
-        player:setPos(-284.751,-39.923,-422.948,235)
+        player:setPos(-284.751, -39.923, -422.948, 235)
     end
 
     if player:getXPos() == 0 and player:getYPos() == 0 and player:getZPos() == 0 then
@@ -30,7 +30,7 @@ function onZoneIn( player, prevZone)
 
     if player:getCurrentMission( COP) == tpz.mission.id.cop.DESIRES_OF_EMPTINESS and player:getCharVar( "PromathiaStatus") == 9 then
         cs = 206
-    elseif triggerLightCutscene(player) then -- Quest: I Can Hear A Rainbow
+    elseif quests.rainbow.onZoneIn(player) then
         cs = 114
     elseif player:getCurrentMission(WINDURST) == tpz.mission.id.windurst.VAIN and player:getCharVar("MissionStatus") ==1 then
         cs = 116
@@ -48,17 +48,15 @@ end
 
 function onEventUpdate( player, csid, option)
     if csid == 114 then
-        lightCutsceneUpdate(player) -- Quest: I Can Hear A Rainbow
+        quests.rainbow.onEventUpdate(player)
     elseif csid == 116 then
-        player:updateEvent(0,0,0,0,0,4)
+        player:updateEvent(0, 0, 0, 0, 0, 4)
     end
 end
 
 function onEventFinish( player, csid, option)
     if csid == 206 then
-        player:setCharVar("PromathiaStatus",10)
-    elseif csid == 114 then
-        lightCutsceneFinish(player); -- Quest: I Can Hear A Rainbow
+        player:setCharVar("PromathiaStatus", 10)
     end
 end
 

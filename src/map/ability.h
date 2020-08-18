@@ -323,9 +323,9 @@ enum ABILITY
     ABILITY_UNBRIDLED_LEARNING = 298,
     ABILITY_TRIPLE_SHOT        = 301,
     ABILITY_ALLIES_ROLL        = 302,
-    ABILITY_MISER_S_ROLL       = 303,
-    ABILITY_COMPANION_S_ROLL   = 304,
-    ABILITY_AVENGER_S_ROLL     = 305,
+    ABILITY_MISERS_ROLL        = 303,
+    ABILITY_COMPANIONS_ROLL    = 304,
+    ABILITY_AVENGERS_ROLL      = 305,
     ABILITY_COOLDOWN           = 309,
     ABILITY_DEUX_EX_AUTOMATA   = 310,
     ABILITY_CURING_WALTZ_V     = 311,
@@ -426,7 +426,7 @@ enum ABILITY
     ABILITY_LEVEL_QUESTION_HOLY= 524,
     ABILITY_RAISE_II           = 525,
     ABILITY_RERAISE_II         = 526,
-    ABILITY_ALTANA_S_FAVOR     = 527,
+    ABILITY_ALTANAS_FAVOR      = 527,
     ABILITY_MOONLIT_CHARGE     = 528,
     ABILITY_CRESCENT_FANG      = 529,
     ABILITY_LUNAR_CRY          = 530,
@@ -656,7 +656,8 @@ enum ABILITY
     ABILITY_BITTER_ELEGY       = 966,
     ABILITY_SONIC_BUFFET       = 967,
     ABILITY_TORNADO_II         = 968,
-    ABILITY_WIND_S_BLESSING    = 969,
+    ABILITY_WINDS_BLESSING     = 969,
+    ABILITY_HYSTERIC_ASSAULT   = 970,
 
 };
 
@@ -755,7 +756,7 @@ private:
 
 /************************************************************************
 *                                                                       *
-*  namespase для работы со способностями                                *
+*    namespase for working with abilities                               *
 *                                                                       *
 ************************************************************************/
 

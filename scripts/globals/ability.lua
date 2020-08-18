@@ -75,6 +75,7 @@ tpz.jobAbility =
     REWARD             = 78,
     COVER              = 79,
     SPIRIT_LINK        = 80,
+    ENRAGE             = 81,
     CHI_BLAST          = 82,
     CONVERT            = 83,
     ACCOMPLICE         = 84,
@@ -127,6 +128,7 @@ tpz.jobAbility =
     LIGHT_SHOT         = 131,
     DARK_SHOT          = 132,
     RANDOM_DEAL        = 133,
+    -- NONE            = 134,
     OVERDRIVE          = 135,
     ACTIVATE           = 136,
     REPAIR             = 137,
@@ -223,6 +225,7 @@ tpz.jobAbility =
     DESPOIL            = 228,
     PIANISSIMO         = 229,
     SEKKANOKI          = 230,
+    -- NONE            = 231,
     ELEMENTAL_SIPHON   = 232,
     SUBLIMATION        = 233,
     ADDENDUM_WHITE     = 234,
@@ -259,6 +262,7 @@ tpz.jobAbility =
     LIBRA              = 265,
     TACTICAL_SWITCH    = 266,
     BLOOD_RAGE         = 267,
+    -- NONE            = 268,
     IMPETUS            = 269,
     DIVINE_CARESS      = 270,
     SANCROSANCTITY     = 271,
@@ -279,24 +283,33 @@ tpz.jobAbility =
     DECOY_SHOT         = 286,
     HAMANOHA           = 287,
     HAGAKURE           = 288,
+    -- NONE            = 289,
+    -- NONE            = 290,
     ISSEKIGAN          = 291,
     DRAGON_BREAKER     = 292,
     SOUL_JUMP          = 293,
+    -- NONE            = 294,
     STEADY_WING        = 295,
     MANA_CEDE          = 296,
     EFFLUX             = 297,
     UNBRIDLED_LEARNING = 298,
+    -- NONE            = 299,
+    -- NONE            = 300,
     TRIPLE_SHOT        = 301,
     ALLIES_ROLL        = 302,
-    MISER_S_ROLL       = 303,
-    COMPANION_S_ROLL   = 304,
-    AVENGER_S_ROLL     = 305,
+    MISERS_ROLL        = 303,
+    COMPANIONS_ROLL    = 304,
+    AVENGERS_ROLL      = 305,
+    -- NONE            = 306,
+    -- NONE            = 307,
+    -- NONE            = 308,
     COOLDOWN           = 309,
     DEUX_EX_AUTOMATA   = 310,
     CURING_WALTZ_V     = 311,
     FEATHER_STEP       = 312,
     STRIKING_FLOURISH  = 313,
     TERNARY_FLOURISH   = 314,
+    -- NONE            = 315,
     PERPETUANCE        = 316,
     IMMANENCE          = 317,
     SMITING_BREATH     = 318,
@@ -376,6 +389,7 @@ tpz.jobAbility =
     CROOKED_CARDS      = 392,
     SPIRIT_BOND        = 393,
     MAJESTY            = 394,
+    -- NONE      = 395 - 511,
     HEALING_RUBY       = 512,
     POISON_NAILS       = 513,
     SHINING_RUBY       = 514,
@@ -388,10 +402,10 @@ tpz.jobAbility =
     REGAL_SCRATCH      = 521,
     MEWING_LULLABY     = 522,
     EARIE_EYE          = 523,
---    LEVEL_?_HOLY       = 524,
+    LEVEL_QM_HOLY      = 524,
     RAISE_II           = 525,
     RERAISE_II         = 526,
-    ALTANA_S_FAVOR     = 527,
+    ALTANAS_FAVOR      = 527,
     MOONLIT_CHARGE     = 528,
     CRESCENT_FANG      = 529,
     LUNAR_CRY          = 530,
@@ -399,10 +413,15 @@ tpz.jobAbility =
     ECLIPTIC_GROWL     = 532,
     ECLIPTIC_HOWL      = 533,
     ECLIPSE_BITE       = 534,
+    -- NONE            = 535,
     HOWLING_MOON       = 536,
     LUNAR_BAY          = 537,
     HEAVENWARD_HOWL    = 538,
     IMPACT             = 539,
+    -- NONE            = 540,
+    -- NONE            = 541,
+    -- NONE            = 542,
+    -- NONE            = 543,
     PUNCH              = 544,
     FIRE_II            = 545,
     BURNING_STRIKE     = 546,
@@ -410,10 +429,15 @@ tpz.jobAbility =
     CRIMSON_HOWL       = 548,
     FIRE_IV            = 549,
     FLAMING_CRUSH      = 550,
-	METEOR_STRIKE      = 551,
+	  METEOR_STRIKE      = 551,
     INFERNO            = 552,
     INFERNO_HOWL       = 553,
     CONFLAG_STRIKE     = 554,
+    -- NONE            = 555,
+    -- NONE            = 556,
+    -- NONE            = 557,
+    -- NONE            = 558,
+    -- NONE            = 559,
     ROCK_THROW         = 560,
     STONE_II           = 561,
     ROCK_BUSTER        = 562,
@@ -425,6 +449,11 @@ tpz.jobAbility =
     EARTHEN_FURY       = 568,
     EARTHEN_ARMOR      = 569,
     CRAG_THROW         = 570,
+    -- NONE            = 571,
+    -- NONE            = 572,
+    -- NONE            = 573,
+    -- NONE            = 574,
+    -- NONE            = 575,
     BARRACUDA_DIVE     = 576,
     WATER_II           = 577,
     TAIL_WHIP          = 578,
@@ -436,6 +465,11 @@ tpz.jobAbility =
     TIDAL_WAVE         = 584,
     TIDAL_ROAR         = 585,
     SOOTHING_CURRENT   = 586,
+    -- NONE            = 587,
+    -- NONE            = 588,
+    -- NONE            = 589,
+    -- NONE            = 590,
+    -- NONE            = 591,
     CLAW               = 592,
     AERO_II            = 593,
     WHISPERING_WIND    = 594,
@@ -447,6 +481,11 @@ tpz.jobAbility =
     AERIAL_BLAST       = 600,
     FLEET_WIND         = 601,
     HASTEGA_II         = 602,
+    -- NONE            = 603,
+    -- NONE            = 604,
+    -- NONE            = 605,
+    -- NONE            = 606,
+    -- NONE            = 607,
     AXE_KICK           = 608,
     BLIZZARD_II        = 609,
     FROST_ARMOR        = 610,
@@ -458,6 +497,11 @@ tpz.jobAbility =
     DIAMOND_DUST       = 616,
     DIAMOND_STORM      = 617,
     CRYSTAL_BLESSING   = 618,
+    -- NONE            = 619,
+    -- NONE            = 620,
+    -- NONE            = 621,
+    -- NONE            = 622,
+    -- NONE            = 623,
     SHOCK_STRIKE       = 624,
     THUNDER_II         = 625,
     ROLLING_THUNDER    = 626,
@@ -469,6 +513,10 @@ tpz.jobAbility =
     JUDGMENT_BOLT      = 632,
     SHOCK_SQUALL       = 633,
     VOLT_STRIKE        = 634,
+    -- NONE            = 635,
+    -- NONE            = 636,
+    -- NONE            = 637,
+    -- NONE            = 638,
     HEALING_BREATH_IV  = 639,
     HEALING_BREATH     = 640,
     HEALING_BREATH_II  = 641,
@@ -528,7 +576,7 @@ tpz.jobAbility =
     SCISSOR_GAURD      = 696,
     METALLIC_BODY      = 697,
     NEEDLESHOT         = 698,
---    ???_NEEDLES        = 699,
+    QMQMQM_NEEDLES     = 699,
     FROGKICK           = 700,
     SPORE              = 701,
     QUEASYSHROOM       = 702,
@@ -537,7 +585,7 @@ tpz.jobAbility =
     SILENCE_GAS        = 705,
     DARK_SPORE         = 706,
     POWER_ATTACK       = 707,
---    HI-FREQ_FIELD      = 708,
+    HI_FREQ_FIELD      = 708,
     RHINO_ATTACK       = 709,
     RHINO_GAURD        = 710,
     SPOIL              = 711,
@@ -568,8 +616,10 @@ tpz.jobAbility =
     SUDDEN_LUNGE       = 736,
     SPIRAL_SPIN        = 737,
     NOISOME_POWDER     = 738,
+    -- NONE            = 739,
     ACID_MIST          = 740,
     TP_DRAINKISS       = 741,
+    -- NONE            = 742,
     SCYTHE_TAIL        = 743,
     RIPPER_FANG        = 744,
     CHOMP_RUSH         = 745,
@@ -610,8 +660,12 @@ tpz.jobAbility =
     REGAL_GASH         = 780,
     INFECTED_LEECH     = 781,
     GLOOM_SPRAY        = 782,
+    -- NONE            = 783,
+    -- NONE            = 784,
+    -- NONE            = 785,
     DISEMBOWEL         = 786,
     EXTIRPATING_SALVO  = 787,
+    -- NONE      = 788 - 959,
     CLARSACH_CALL      = 960,
     WELT               = 961,
     KATABATIC_BLADES   = 962,
@@ -621,7 +675,8 @@ tpz.jobAbility =
     BITTER_ELEGY       = 966,
     SONIC_BUFFET       = 967,
     TORNADO_II         = 968,
-    WIND_S_BLESSING    = 969,
+    WINDS_BLESSING     = 969,
+    HYSTERIC_ASSAULT   = 970,
 	
 
 }
@@ -649,7 +704,7 @@ tpz.specEffect =
 }
 
 function corsairSetup(caster, ability, action, effect, job)
-    local roll = math.random(1,6)
+    local roll = math.random(1, 6)
     caster:delStatusEffectSilent(tpz.effect.DOUBLE_UP_CHANCE)
     caster:addStatusEffectEx(tpz.effect.DOUBLE_UP_CHANCE,
                              tpz.effect.DOUBLE_UP_CHANCE,
@@ -683,7 +738,7 @@ end
 
 function checkForElevenRoll(caster)
     local effects = caster:getStatusEffects()
-    for _,effect in ipairs(effects) do
+    for _, effect in ipairs(effects) do
         if (effect:getType() >= tpz.effect.FIGHTERS_ROLL and
             effect:getType() <= tpz.effect.NATURALISTS_ROLL and
             effect:getSubPower() == 11) then
@@ -713,7 +768,7 @@ function phantombuffMultiple(caster) -- Check for tpz.mod.PHANTOM_ROLL Value and
     return phantombuffMultiplier
 end
 
-function AbilityFinalAdjustments(dmg,mob,skill,target,skilltype,skillparam,shadowbehav)
+function AbilityFinalAdjustments(dmg, mob, skill, target, skilltype, skillparam, shadowbehav)
     -- physical attack missed, skip rest
     local msg = skill:getMsg()
     if (msg == 158 or msg == 188 or msg == 31 or msg == 30) then
@@ -775,7 +830,7 @@ function AbilityFinalAdjustments(dmg,mob,skill,target,skilltype,skillparam,shado
 
     if (dmg > 0) then
         target:wakeUp()
-        target:updateEnmityFromDamage(mob,dmg)
+        target:updateEnmityFromDamage(mob, dmg)
     end
 
     return dmg

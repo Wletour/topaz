@@ -56,6 +56,7 @@
 #include "../entities/battleentity.h"
 #include "../entities/mobentity.h"
 #include "../entities/petentity.h"
+#include "../entities/trustentity.h"
 #include "../enmity_container.h"
 #include "../items.h"
 #include "../item_container.h"
@@ -82,7 +83,7 @@ std::array<std::array<uint8, MAX_JOBTYPE>, MAX_SKILLTYPE> g_SkillRanks;
 std::array<std::array<uint16, MAX_SKILLCHAIN_COUNT + 1>, MAX_SKILLCHAIN_LEVEL + 1> g_SkillChainDamageModifiers;
 
 std::array<CWeaponSkill*, MAX_WEAPONSKILL_ID> g_PWeaponSkillList;           // Holds all Weapon skills
-std::array<CMobSkill*, 4096> g_PMobSkillList;                   // List of mob skills
+std::array<CMobSkill*, MAX_MOBSKILL_ID> g_PMobSkillList;                   // List of mob skills
 
 std::array<std::list<CWeaponSkill*>, MAX_SKILLTYPE> g_PWeaponSkillsList;
 std::unordered_map<uint16, std::vector<uint16>>  g_PMobSkillLists;  // List of mob skills defined from mob_skill_lists.sql
@@ -271,6 +272,8 @@ namespace battleutils
         for (int32 SkillId = 0; SkillId < MAX_WEAPONSKILL_ID; ++SkillId)
         {
             delete g_PWeaponSkillList[SkillId];
+            g_PWeaponSkillList[SkillId] = nullptr;
+
         }
     }
 
@@ -279,9 +282,10 @@ namespace battleutils
     ************************************************************************/
     void FreeMobSkillList()
     {
-        for (auto mobskill : g_PMobSkillList)
+        for (auto& mobskill : g_PMobSkillList)
         {
             delete mobskill;
+            mobskill = nullptr;
         }
     }
 
@@ -840,24 +844,24 @@ namespace battleutils
         Action->addEffectMessage = 0;
         Action->addEffectParam = 0;
 
-        EFFECT daze = EFFECT_NONE;
-        uint16 power = 0;
+        EFFECT previous_daze = EFFECT_NONE;
+        uint16 previous_daze_power = 0;
         if (PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_DRAIN_SAMBA))
         {
-            daze = EFFECT_DRAIN_DAZE;
-            power = PAttacker->StatusEffectContainer->GetStatusEffect(EFFECT_DRAIN_SAMBA)->GetPower();
+            previous_daze = EFFECT_DRAIN_DAZE;
+            previous_daze_power = PAttacker->StatusEffectContainer->GetStatusEffect(EFFECT_DRAIN_SAMBA)->GetPower();
         }
         else if (PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_ASPIR_SAMBA))
         {
-            daze = EFFECT_ASPIR_DAZE;
-            power = PAttacker->StatusEffectContainer->GetStatusEffect(EFFECT_ASPIR_SAMBA)->GetPower();
+            previous_daze = EFFECT_ASPIR_DAZE;
+            previous_daze_power = PAttacker->StatusEffectContainer->GetStatusEffect(EFFECT_ASPIR_SAMBA)->GetPower();
         }
         else if (PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_HASTE_SAMBA))
         {
-            daze = EFFECT_HASTE_DAZE;
-            power = PAttacker->StatusEffectContainer->GetStatusEffect(EFFECT_HASTE_SAMBA)->GetPower();
+            previous_daze = EFFECT_HASTE_DAZE;
+            previous_daze_power = PAttacker->StatusEffectContainer->GetStatusEffect(EFFECT_HASTE_SAMBA)->GetPower();
         }
-        if (daze != EFFECT_NONE)
+        if (previous_daze != EFFECT_NONE)
         {
             if (PAttacker->PParty != nullptr)
             {
@@ -874,10 +878,10 @@ namespace battleutils
                 PDefender->StatusEffectContainer->DelStatusEffect(EFFECT_HASTE_DAZE, PAttacker->id);
                 PDefender->StatusEffectContainer->DelStatusEffect(EFFECT_ASPIR_DAZE, PAttacker->id);
             }
-            if ((PDefender->m_EcoSystem != SYSTEM_UNDEAD) || (daze == EFFECT_HASTE_DAZE))
+            if ((PDefender->m_EcoSystem != SYSTEM_UNDEAD) || (previous_daze == EFFECT_HASTE_DAZE))
             {
-                PDefender->StatusEffectContainer->AddStatusEffect(new CStatusEffect(daze,
-                    0, power,
+                PDefender->StatusEffectContainer->AddStatusEffect(new CStatusEffect(previous_daze,
+                    0, previous_daze_power,
                     0, 10, PAttacker->id), true);
             }
         }
@@ -991,11 +995,12 @@ namespace battleutils
             // TODO: ignore dazes from dancers outside party
             int16 delay = PAttacker->GetWeaponDelay(false) / 10;
 
-            if (PAttacker->PMaster == nullptr)
+            if (PAttacker->PMaster == nullptr || (PAttacker->objtype == TYPE_TRUST && PAttacker->PMaster))
             {
+                // TODO: All of this is very ugly, but is fairly fragile, be careful refactoring!
                 EFFECT daze = EFFECT_NONE;
                 uint16 power = 0;
-                if (PAttacker->PParty != nullptr && PAttacker->objtype == TYPE_PC)
+                if (PAttacker->objtype == TYPE_PC && PAttacker->PParty != nullptr)
                 {
                     for (uint8 i = 0; i < PAttacker->PParty->members.size(); i++)
                     {
@@ -1015,6 +1020,30 @@ namespace battleutils
                         {
                             daze = EFFECT_ASPIR_DAZE;
                             power = PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_ASPIR_DAZE, PAttacker->PParty->members[i]->id)->GetPower();
+                            break;
+                        }
+                    }
+                }
+                else if (PAttacker->objtype == TYPE_TRUST && PAttacker->PMaster->PParty)
+                {
+                    for (uint8 i = 0; i < PAttacker->PMaster->PParty->members.size(); i++)
+                    {
+                        if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_DRAIN_DAZE, PAttacker->PMaster->PParty->members[i]->id))
+                        {
+                            daze = EFFECT_DRAIN_DAZE;
+                            power = PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_DRAIN_DAZE, PAttacker->PMaster->PParty->members[i]->id)->GetPower();
+                            break;
+                        }
+                        if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_HASTE_DAZE, PAttacker->PMaster->PParty->members[i]->id))
+                        {
+                            daze = EFFECT_HASTE_DAZE;
+                            power = PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_HASTE_DAZE, PAttacker->PMaster->PParty->members[i]->id)->GetPower();
+                            break;
+                        }
+                        if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_ASPIR_DAZE, PAttacker->PMaster->PParty->members[i]->id))
+                        {
+                            daze = EFFECT_ASPIR_DAZE;
+                            power = PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_ASPIR_DAZE, PAttacker->PMaster->PParty->members[i]->id)->GetPower();
                             break;
                         }
                     }
@@ -1511,7 +1540,12 @@ namespace battleutils
         return x;
     }
 
-    bool TryInterruptSpell(CBattleEntity* PAttacker, CBattleEntity* PDefender, CSpell* PSpell) {
+    bool TryInterruptSpell(CBattleEntity* PAttacker, CBattleEntity* PDefender, CSpell* PSpell)
+    {
+        if (PDefender->objtype == TYPE_TRUST)
+        {
+            return false;
+        }
 
         // cannot interrupt when manafont is active
         if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_MANAFONT))
@@ -1522,7 +1556,6 @@ namespace battleutils
         // Songs cannot be interrupted by physical attacks.
         if ((SKILLTYPE)PSpell->getSkillType() == SKILL_SINGING)
         {
-            // ShowDebug("Is song, interrupt prevented.\n");
             return false;
         }
 
@@ -1722,6 +1755,10 @@ namespace battleutils
                     //ShowDebug(CL_CYAN"GetParryRate: Issekigan Active, Parry Rate %d -> %d...\n" CL_RESET, parryRate, (parryRate+issekiganBonus));
                     parryRate = parryRate + issekiganBonus;
                 }
+
+                // Inquartata grants a flat parry rate bonus.
+                int16 inquartataBonus = PDefender->getMod(Mod::INQUARTATA);
+                parryRate += inquartataBonus;
 
                 return parryRate;
             }
@@ -3054,6 +3091,32 @@ namespace battleutils
         return PDefender->getMod(defMod);
     }
 
+    std::vector<ELEMENT> GetSkillchainMagicElement(SKILLCHAIN_ELEMENT skillchain)
+    {
+        static const std::unordered_map<SKILLCHAIN_ELEMENT, std::vector<ELEMENT>> resonanceToElement = {
+            {SC_NONE, {}},
+            {SC_TRANSFIXION, {ELEMENT_LIGHT}},
+            {SC_COMPRESSION, {ELEMENT_DARK}},
+            {SC_LIQUEFACTION, {ELEMENT_FIRE}},
+            {SC_SCISSION, {ELEMENT_EARTH}},
+            {SC_REVERBERATION, {ELEMENT_WATER}},
+            {SC_DETONATION, {ELEMENT_WIND}},
+            {SC_INDURATION, {ELEMENT_ICE}},
+            {SC_IMPACTION, {ELEMENT_THUNDER}},
+
+            {SC_GRAVITATION, {ELEMENT_DARK, ELEMENT_EARTH}},
+            {SC_DISTORTION, {ELEMENT_WATER, ELEMENT_ICE}},
+            {SC_FUSION, {ELEMENT_LIGHT, ELEMENT_FIRE}},
+            {SC_FRAGMENTATION, {ELEMENT_WIND, ELEMENT_THUNDER}},
+
+            {SC_LIGHT, {ELEMENT_LIGHT, ELEMENT_FIRE, ELEMENT_WIND, ELEMENT_THUNDER}},
+            {SC_DARKNESS, {ELEMENT_DARK, ELEMENT_EARTH, ELEMENT_WATER, ELEMENT_ICE}},
+            {SC_LIGHT_II, {ELEMENT_LIGHT}},
+            {SC_DARKNESS_II, {ELEMENT_DARK}}};
+
+        return resonanceToElement.at(skillchain);
+    }
+
     int32 TakeSkillchainDamage(CBattleEntity* PAttacker, CBattleEntity* PDefender, int32 lastSkillDamage, CBattleEntity* taChar)
     {
         TPZ_DEBUG_BREAK_IF(PAttacker == nullptr);
@@ -3404,12 +3467,15 @@ namespace battleutils
     *                                                                       *
     ************************************************************************/
 
-    void GenerateCureEnmity(CCharEntity* PSource, CBattleEntity* PTarget, int32 amount)
+    void GenerateCureEnmity(CBattleEntity* PSource, CBattleEntity* PTarget, int32 amount)
     {
         TPZ_DEBUG_BREAK_IF(PSource == nullptr);
         TPZ_DEBUG_BREAK_IF(PTarget == nullptr);
 
-        for (SpawnIDList_t::const_iterator it = PSource->SpawnMOBList.begin(); it != PSource->SpawnMOBList.end(); ++it)
+        auto PMasterSource = PSource->PMaster ? PSource->PMaster : PSource;
+        auto PMasterSourceChar = static_cast<CCharEntity*>(PMasterSource);
+
+        for (SpawnIDList_t::const_iterator it = PMasterSourceChar->SpawnMOBList.begin(); it != PMasterSourceChar->SpawnMOBList.end(); ++it)
         {
             CMobEntity* PCurrentMob = static_cast<CMobEntity*>(it->second);
 
@@ -3837,6 +3903,10 @@ namespace battleutils
             case EMobDifficulty::IncrediblyTough:
                 CharmTime = 22500;
                 break;
+
+            default:
+                // no-op
+                break;
             }
 
             //apply charm time extension from gear
@@ -3900,6 +3970,9 @@ namespace battleutils
             {
                 petutils::DespawnPet(PVictim);
             }
+
+            static_cast<CCharEntity*>(PVictim)->ClearTrusts();
+
             PVictim->PAI->SetController(std::make_unique<CPlayerCharmController>(static_cast<CCharEntity*>(PVictim)));
 
             battleutils::RelinquishClaim(static_cast<CCharEntity*>(PVictim));
@@ -3994,6 +4067,9 @@ namespace battleutils
             break;
         case EMobDifficulty::IncrediblyTough:
             charmChance = 10.f;
+            break;
+        default:
+            // no-op
             break;
         }
 
@@ -4103,6 +4179,10 @@ namespace battleutils
                                 return;
                             }
                             CBattleEntity* highestClaim = mob->PEnmityContainer->GetHighestEnmity();
+                            if (highestClaim->objtype == TYPE_TRUST)
+                            {
+                                highestClaim = static_cast<CTrustEntity*>(highestClaim)->PMaster;
+                            }
                             PAttacker->ForAlliance([&](CBattleEntity* PMember){
                                 if (!highestClaim || highestClaim == PMember || highestClaim == PMember->PPet)
                                 { // someone in your alliance is top of hate list, claim for your alliance
@@ -4415,7 +4495,6 @@ namespace battleutils
         if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_BIND))
         {
             uint16 BindBreakChance = 0; // 0-1000 (100.0%) scale. Maybe change to a float later..
-            uint16 LvDiffByExp = charutils::GetRealExp(PAttacker->GetMLevel(), PDefender->GetMLevel()); // This is temp.
             EMobDifficulty mobCheck = charutils::CheckMob(PAttacker->GetMLevel(), PDefender->GetMLevel());
 
             // Todo: replace with an actual calculated value based on level difference. Not it, Bro!
@@ -4444,6 +4523,10 @@ namespace battleutils
             case EMobDifficulty::VeryTough:
             case EMobDifficulty::IncrediblyTough:
                 BindBreakChance = 990;
+                break;
+
+            default:
+                // no-op
                 break;
             }
 

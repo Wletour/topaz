@@ -827,13 +827,10 @@ bool CStatusEffectContainer::ApplyBardEffect(CStatusEffect* PStatusEffect, uint8
             m_StatusEffectList.at(i)->GetStatusID() <= EFFECT_NOCTURNE) //is a brd effect
         {
             if (m_StatusEffectList.at(i)->GetTier() == PStatusEffect->GetTier() &&
-                m_StatusEffectList.at(i)->GetStatusID() == PStatusEffect->GetStatusID()) {//same tier/type, overwrite
-                    //OVERWRITE
+                m_StatusEffectList.at(i)->GetStatusID() == PStatusEffect->GetStatusID()) {//remove same tier/type, if one exists
                 DelStatusEffectByTier(PStatusEffect->GetStatusID(), PStatusEffect->GetTier());
-                AddStatusEffect(PStatusEffect);
-                return true;
             }
-            if (m_StatusEffectList.at(i)->GetSubID() == PStatusEffect->GetSubID()) {//YOUR BRD effect
+            else if (m_StatusEffectList.at(i)->GetSubID() == PStatusEffect->GetSubID()) {//YOUR BRD effect
                 numOfEffects++;
                 if (!oldestSong) {
                     oldestSong = m_StatusEffectList.at(i);
@@ -1236,11 +1233,14 @@ void CStatusEffectContainer::SetEffectParams(CStatusEffect* StatusEffect)
     if (m_POwner->isAlive())
     {
         // this should actually go into a char charm AI
-        if (m_POwner->PPet != nullptr && m_POwner->objtype == TYPE_PC)
+        if (m_POwner->objtype == TYPE_PC)
         {
             if (effect == EFFECT_CHARM || effect == EFFECT_CHARM_II)
             {
-                petutils::DespawnPet(m_POwner);
+                if (m_POwner->PPet != nullptr)
+                {
+                    petutils::DespawnPet(m_POwner);
+                }
             }
         }
 
