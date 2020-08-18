@@ -389,9 +389,7 @@ tpz.jobAbility =
     CROOKED_CARDS      = 392,
     SPIRIT_BOND        = 393,
     MAJESTY            = 394,
-
-    -- NONE       = 395 - 511
-
+    -- NONE      = 395 - 511,
     HEALING_RUBY       = 512,
     POISON_NAILS       = 513,
     SHINING_RUBY       = 514,
@@ -431,13 +429,15 @@ tpz.jobAbility =
     CRIMSON_HOWL       = 548,
     FIRE_IV            = 549,
     FLAMING_CRUSH      = 550,
-	METEOR_STRIKE      = 551,
+	  METEOR_STRIKE      = 551,
     INFERNO            = 552,
     INFERNO_HOWL       = 553,
     CONFLAG_STRIKE     = 554,
-
-    -- NONE      = 554 - 559,
-
+    -- NONE            = 555,
+    -- NONE            = 556,
+    -- NONE            = 557,
+    -- NONE            = 558,
+    -- NONE            = 559,
     ROCK_THROW         = 560,
     STONE_II           = 561,
     ROCK_BUSTER        = 562,
@@ -449,9 +449,11 @@ tpz.jobAbility =
     EARTHEN_FURY       = 568,
     EARTHEN_ARMOR      = 569,
     CRAG_THROW         = 570,
-
-    -- NONE      = 571 - 575,
-
+    -- NONE            = 571,
+    -- NONE            = 572,
+    -- NONE            = 573,
+    -- NONE            = 574,
+    -- NONE            = 575,
     BARRACUDA_DIVE     = 576,
     WATER_II           = 577,
     TAIL_WHIP          = 578,
@@ -463,9 +465,11 @@ tpz.jobAbility =
     TIDAL_WAVE         = 584,
     TIDAL_ROAR         = 585,
     SOOTHING_CURRENT   = 586,
-
-    -- NONE      = 587 - 591,
-
+    -- NONE            = 587,
+    -- NONE            = 588,
+    -- NONE            = 589,
+    -- NONE            = 590,
+    -- NONE            = 591,
     CLAW               = 592,
     AERO_II            = 593,
     WHISPERING_WIND    = 594,
@@ -477,9 +481,11 @@ tpz.jobAbility =
     AERIAL_BLAST       = 600,
     FLEET_WIND         = 601,
     HASTEGA_II         = 602,
-
-    -- NONE      = 603 - 607,
-
+    -- NONE            = 603,
+    -- NONE            = 604,
+    -- NONE            = 605,
+    -- NONE            = 606,
+    -- NONE            = 607,
     AXE_KICK           = 608,
     BLIZZARD_II        = 609,
     FROST_ARMOR        = 610,
@@ -491,9 +497,11 @@ tpz.jobAbility =
     DIAMOND_DUST       = 616,
     DIAMOND_STORM      = 617,
     CRYSTAL_BLESSING   = 618,
-
-    -- NONE      = 619 - 623,
-
+    -- NONE            = 619,
+    -- NONE            = 620,
+    -- NONE            = 621,
+    -- NONE            = 622,
+    -- NONE            = 623,
     SHOCK_STRIKE       = 624,
     THUNDER_II         = 625,
     ROLLING_THUNDER    = 626,
@@ -505,9 +513,10 @@ tpz.jobAbility =
     JUDGMENT_BOLT      = 632,
     SHOCK_SQUALL       = 633,
     VOLT_STRIKE        = 634,
-
-    -- NONE      = 635 - 638,
-
+    -- NONE            = 635,
+    -- NONE            = 636,
+    -- NONE            = 637,
+    -- NONE            = 638,
     HEALING_BREATH_IV  = 639,
     HEALING_BREATH     = 640,
     HEALING_BREATH_II  = 641,
@@ -656,9 +665,7 @@ tpz.jobAbility =
     -- NONE            = 785,
     DISEMBOWEL         = 786,
     EXTIRPATING_SALVO  = 787,
-
     -- NONE      = 788 - 959,
-
     CLARSACH_CALL      = 960,
     WELT               = 961,
     KATABATIC_BLADES   = 962,

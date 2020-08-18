@@ -411,7 +411,6 @@ enum ABILITY
     ABILITY_CROOKED_CARDS      = 392,
     ABILITY_SPIRIT_BOND        = 393,
     ABILITY_MAJESTY            = 394,
-
     ABILITY_HEALING_RUBY       = 512,
     ABILITY_POISON_NAILS       = 513,
     ABILITY_SHINING_RUBY       = 514,
@@ -435,12 +434,10 @@ enum ABILITY
     ABILITY_ECLIPTIC_GROWL     = 532,
     ABILITY_ECLIPTIC_HOWL      = 533,
     ABILITY_ECLIPSE_BITE       = 534,
-
     ABILITY_HOWLING_MOON       = 536,
     ABILITY_LUNAR_BAY          = 537,
     ABILITY_HEAVENWARD_HOWL    = 538,
     ABILITY_IMPACT             = 539,
-
     ABILITY_PUNCH              = 544,
     ABILITY_FIRE_II            = 545,
     ABILITY_BURNING_STRIKE     = 546,
@@ -452,7 +449,6 @@ enum ABILITY
     ABILITY_INFERNO            = 552,
     ABILITY_INFERNO_HOWL       = 553,
     ABILITY_CONFLAG_STRIKE     = 554,
-
     ABILITY_ROCK_THROW         = 560,
     ABILITY_STONE_II           = 561,
     ABILITY_ROCK_BUSTER        = 562,
@@ -464,7 +460,6 @@ enum ABILITY
     ABILITY_EARTHEN_FURY       = 568,
     ABILITY_EARTHEN_ARMOR      = 569,
     ABILITY_CRAG_THROW         = 570,
-
     ABILITY_BARRACUDA_DIVE     = 576,
     ABILITY_WATER_II           = 577,
     ABILITY_TAIL_WHIP          = 578,
@@ -476,7 +471,6 @@ enum ABILITY
     ABILITY_TIDAL_WAVE         = 584,
     ABILITY_TIDAL_ROAR         = 585,
     ABILITY_SOOTHING_CURRENT   = 586,
-
     ABILITY_CLAW               = 592,
     ABILITY_AERO_II            = 593,
     ABILITY_WHISPERING_WIND    = 594,
@@ -488,7 +482,6 @@ enum ABILITY
     ABILITY_AERIAL_BLAST       = 600,
     ABILITY_FLEET_WIND         = 601,
     ABILITY_HASTEGA_II         = 602,
-
     ABILITY_AXE_KICK           = 608,
     ABILITY_BLIZZARD_II        = 609,
     ABILITY_FROST_ARMOR        = 610,
@@ -500,7 +493,6 @@ enum ABILITY
     ABILITY_DIAMOND_DUST       = 616,
     ABILITY_DIAMOND_STORM      = 617,
     ABILITY_CRYSTAL_BLESSING   = 618,
-
     ABILITY_SHOCK_STRIKE       = 624,
     ABILITY_THUNDER_II         = 625,
     ABILITY_ROLLING_THUNDER    = 626,
@@ -512,7 +504,6 @@ enum ABILITY
     ABILITY_JUDGMENT_BOLT      = 632,
     ABILITY_SHOCK_SQUALL       = 633,
     ABILITY_VOLT_STRIKE        = 634,
-
     ABILITY_HEALING_BREATH_IV  = 639,
     ABILITY_HEALING_BREATH     = 640,
     ABILITY_HEALING_BREATH_II  = 641,
@@ -612,10 +603,8 @@ enum ABILITY
     ABILITY_SUDDEN_LUNGE       = 736,
     ABILITY_SPIRAL_SPIN        = 737,
     ABILITY_NOISOME_POWDER     = 738,
-
     ABILITY_ACID_MIST          = 740,
     ABILITY_TP_DRAINKISS       = 741,
-
     ABILITY_SCYTHE_TAIL        = 743,
     ABILITY_RIPPER_FANG        = 744,
     ABILITY_CHOMP_RUSH         = 745,
@@ -656,10 +645,8 @@ enum ABILITY
     ABILITY_REGAL_GASH         = 780,
     ABILITY_INFECTED_LEECH     = 781,
     ABILITY_GLOOM_SPRAY        = 782,
-
     ABILITY_DISEMBOWEL         = 786,
     ABILITY_EXTIRPATING_SALVO  = 787,
-
     ABILITY_CLARSACH_CALL      = 960,
     ABILITY_WELT               = 961,
     ABILITY_KATABATIC_BLADES   = 962,
@@ -670,7 +657,7 @@ enum ABILITY
     ABILITY_SONIC_BUFFET       = 967,
     ABILITY_TORNADO_II         = 968,
     ABILITY_WINDS_BLESSING     = 969,
-    ABILITY_HYSTERIC_ASSAULT   = 970
+    ABILITY_HYSTERIC_ASSAULT   = 970,
 
 };
 
@@ -769,7 +756,7 @@ private:
 
 /************************************************************************
 *                                                                       *
-*  namespase для работы со способностями                                *
+*    namespase for working with abilities                               *
 *                                                                       *
 ************************************************************************/
 
