@@ -13,5 +13,5 @@ target:addMod(tpz.mod.DOUBLE_ATTACK, -25)
 end
 
 function onEffectLose(target, effect)
-target:addMod(tpz.mod.DOUBLE_ATTACK-50)
+target:addMod(tpz.mod.DOUBLE_ATTACK, -50)
 end
