@@ -5,7 +5,7 @@
 -----------------------------------
 
 function onEffectGain(target, effect)
-target:addMod(tpz.mod.HPP, 200)
+target:addMod(tpz.mod.HPP, 100)
 target:addMod(tpz.mod.PERFECT_COUNTER_ATT, 100)
 end
 
