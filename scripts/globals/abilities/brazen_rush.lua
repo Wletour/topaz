@@ -14,5 +14,5 @@ function onAbilityCheck(player,target,ability)
 end
 
 function onUseAbility(player,target,ability)
-    player:addStatusEffect(tpz.effect.BRAZEN_STRENGHT,1,368,30)
+    player:addStatusEffect(tpz.effect.BRAZEN_STRENGTH,1,368,30)
 end
