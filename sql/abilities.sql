@@ -205,12 +205,12 @@ INSERT INTO `abilities` VALUES (180,'ventriloquy',18,75,4,60,212,0,0,170,2000,0,
 INSERT INTO `abilities` VALUES (181,'trance',19,0,1,3600,0,0,0,184,2000,0,6,20.0,0,1,300,0,0,'WOTG');
 INSERT INTO `abilities` VALUES (182,'sambas',19,5,1,0,216,0,0,0,2000,0,14,20.0,0,0,0,0,0,'WOTG');
 INSERT INTO `abilities` VALUES (183,'waltzes',19,15,1,0,217,0,0,0,2000,0,14,20.0,0,0,0,0,0,'WOTG');
-INSERT INTO `abilities` VALUES (184,'drain_samba',19,5,1,60,216,319,0,0,2000,0,14,20.0,0,1,300,0,0,'WOTG');
-INSERT INTO `abilities` VALUES (185,'drain_samba_ii',19,35,1,60,216,319,0,1,2000,0,14,20.0,0,1,300,0,0,'WOTG');
-INSERT INTO `abilities` VALUES (186,'drain_samba_iii',19,65,1,60,216,319,0,2,2000,0,14,20.0,0,1,300,0,0,'WOTG');
-INSERT INTO `abilities` VALUES (187,'aspir_samba',19,25,1,60,216,319,0,3,2000,0,14,20.0,0,1,300,0,0,'WOTG');
-INSERT INTO `abilities` VALUES (188,'aspir_samba_ii',19,60,1,60,216,319,0,4,2000,0,14,20.0,0,1,300,0,0,'WOTG');
-INSERT INTO `abilities` VALUES (189,'haste_samba',19,45,1,60,216,319,0,5,2000,0,14,20.0,0,1,300,0,0,'WOTG');
+INSERT INTO `abilities` VALUES (184,'drain_samba',19,5,1,60,216,100,0,0,2000,0,14,20.0,0,1,300,0,0,'WOTG');
+INSERT INTO `abilities` VALUES (185,'drain_samba_ii',19,35,1,60,216,100,0,1,2000,0,14,20.0,0,1,300,0,0,'WOTG');
+INSERT INTO `abilities` VALUES (186,'drain_samba_iii',19,65,1,60,216,100,0,2,2000,0,14,20.0,0,1,300,0,0,'WOTG');
+INSERT INTO `abilities` VALUES (187,'aspir_samba',19,25,1,60,216,100,0,3,2000,0,14,20.0,0,1,300,0,0,'WOTG');
+INSERT INTO `abilities` VALUES (188,'aspir_samba_ii',19,60,1,60,216,100,0,4,2000,0,14,20.0,0,1,300,0,0,'WOTG');
+INSERT INTO `abilities` VALUES (189,'haste_samba',19,45,1,60,216,100,0,5,2000,0,14,20.0,0,1,300,0,0,'WOTG');
 INSERT INTO `abilities` VALUES (190,'curing_waltz',19,15,27,6,217,102,0,6,2000,0,14,20.0,0,0,0,0,0,'WOTG');
 INSERT INTO `abilities` VALUES (191,'curing_waltz_ii',19,30,27,8,186,102,0,7,2000,0,14,20.0,0,0,0,0,0,'WOTG');
 INSERT INTO `abilities` VALUES (192,'curing_waltz_iii',19,45,27,10,187,102,0,8,2000,0,14,20.0,0,0,0,0,0,'WOTG');
@@ -292,7 +292,7 @@ INSERT INTO `abilities` VALUES (269,'impetus',2,88,1,360,31,100,0,240,2000,0,6,2
 INSERT INTO `abilities` VALUES (270,'divine_caress',3,83,1,60,32,100,0,254,2000,0,6,20.0,0,0,0,0,0,NULL);
 INSERT INTO `abilities` VALUES (271,'sacrosanctity',3,95,1,600,33,100,0,268,2000,0,6,13.9,1,0,0,0,0,NULL);
 INSERT INTO `abilities` VALUES (272,'enmity_douse',4,87,4,600,34,100,0,257,2000,0,6,18.0,0,1,0,0,0,NULL);	--check animation
-INSERT INTO `abilities` VALUES (273,'manawell',4,95,1,600,35,319,0,252,2000,0,6,20.0,0,1,80,0,0,NULL);
+INSERT INTO `abilities` VALUES (273,'manawell',4,95,1,600,35,100,0,252,2000,0,6,20.0,0,1,80,0,0,NULL);
 INSERT INTO `abilities` VALUES (274,'saboteur',5,83,1,300,36,0,0,258,2000,0,6,20.0,0,1,80,0,0,'ABYSSEA');
 INSERT INTO `abilities` VALUES (275,'spontaneity',5,95,3,600,37,0,0,259,2000,0,6,20.0,0,1,80,0,0,'ABYSSEA');
 INSERT INTO `abilities` VALUES (276,'conspirator',6,87,1,300,40,0,0,237,2000,0,6,14.0,1,1,80,0,4,'ABYSSEA');
@@ -361,7 +361,7 @@ INSERT INTO `abilities` VALUES (347,'ecliptic_attrition',21,25,1,300,244,664,0,3
 INSERT INTO `abilities` VALUES (348,'collimated_fervor',21,40,1,300,245,100,0,304,2000,0,6,0.0,0,1,300,0,0,'SOA');
 INSERT INTO `abilities` VALUES (349,'life_cycle',21,50,1,600,246,306,0,309,2000,0,6,0.0,0,1,300,0,0,'SOA');
 INSERT INTO `abilities` VALUES (350,'blaze_of_glory',21,60,1,600,247,100,0,308,2000,0,6,0.0,0,1,300,0,0,'SOA');
-INSERT INTO `abilities` VALUES (351,'dematerialize',21,70,1,600,248,319,0,310,2000,0,6,0.0,0,1,300,0,0,'SOA');
+INSERT INTO `abilities` VALUES (351,'dematerialize',21,70,1,600,248,100,0,310,2000,0,6,0.0,0,1,300,0,0,'SOA');
 INSERT INTO `abilities` VALUES (352,'theurgic_focus',21,80,1,300,249,100,0,305,2000,0,6,0.0,0,1,300,0,0,'SOA');
 INSERT INTO `abilities` VALUES (353,'concentric_pulse',21,90,4,300,250,0,0,311,2000,0,6,8.0,0,1,300,0,0,'SOA');
 INSERT INTO `abilities` VALUES (354,'mending_halation',21,75,1,300,251,0,0,311,2000,0,6,10.0,0,1,0,3392,1,'SOA');
@@ -386,7 +386,7 @@ INSERT INTO `abilities` VALUES (372,'Gambit',22,70,4,300,116,0,0,4,2000,0,15,2.0
 INSERT INTO `abilities` VALUES (373,'Liement',22,85,1,180,117,0,0,4,2000,0,15,0.0,0,450,900,0,0,'SOA');	--check animation
 INSERT INTO `abilities` VALUES (374,'One_for_all',22,95,1,300,118,100,0,301,2000,0,6,0.0,1,160,320,0,0,'SOA');
 INSERT INTO `abilities` VALUES (375,'Rayke',22,75,4,300,119,0,0,4,2000,0,15,2.0,0,640,1260,0,0,'SOA');	--check animation
-INSERT INTO `abilities` VALUES (376,'Battuta',22,75,1,300,120,319,0,4,2000,0,15,0.0,0,450,900,0,0,'SOA');
+INSERT INTO `abilities` VALUES (376,'Battuta',22,75,1,300,120,100,0,4,2000,0,15,0.0,0,450,900,0,0,'SOA');
 INSERT INTO `abilities` VALUES (377,'widened_compass',21,96,1,3600,130,100,0,276,2000,0,6,0.0,0,1,300,0,0,'SOA');
 INSERT INTO `abilities` VALUES (378,'odyllic_subterfuge',22,96,4,3600,131,0,0,10,2000,0,15,8.0,15,1,318,0,0,NULL); --check 6 or 15 animation
 INSERT INTO `abilities` VALUES (379,'Ward',22,1,1,0,142,0,0,0,2000,0,6,0.0,0,0,0,0,0,NULL);
