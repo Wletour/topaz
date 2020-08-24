@@ -1,6 +1,6 @@
 -----------------------------------
 --
---     tpz.effect.NETHER_VOID
+--     tpz.effect.SCARLET_DELIRIUM
 --     
 -----------------------------------
 
