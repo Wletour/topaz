@@ -442,7 +442,6 @@ public:
 
     int32 checkSoloPartyAlliance(lua_State*);        // Check if Player is in Party or Alliance 0=Solo 1=Party 2=Alliance
 
-    int32 checkFovAllianceAllowed(lua_State*);       // checks the map config, 1 if alliance is allowed to farm Fov pages
     int32 checkKillCredit(lua_State*);
 
     // Instances
@@ -599,12 +598,13 @@ public:
     int32 spawnPet(lua_State*);              // Calls Pet
     int32 despawnPet(lua_State*);            // Despawns Pet
 
-    int32 spawnTrust(lua_State*);            // Spawns trust
+    int32 spawnTrust(lua_State*);
     int32 clearTrusts(lua_State*);
     int32 getTrustID(lua_State*);
+    int32 trustPartyMessage(lua_State*);
     int32 addSimpleGambit(lua_State*);
     int32 addFullGambit(lua_State*);
-    int32 trustPartyMessage(lua_State*);
+    int32 setTPSkills(lua_State*);
 
     int32 isJugPet(lua_State*);              // If the entity has a pet, test if it is a jug pet.
     int32 hasValidJugPetItem(lua_State*);
