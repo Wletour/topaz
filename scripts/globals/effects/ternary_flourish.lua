@@ -37,19 +37,21 @@ function onUseAbility(player, target, ability)
 
     if (player:hasStatusEffect(tpz.effect.FINISHING_MOVE_1)) then
         player:delStatusEffect(tpz.effect.FINISHING_MOVE_1)
-        player:addStatusEffect(tpz.effect.CLIMACTIC_FLOURISH, 1, 20, 60, 0, 0)
+        player:addStatusEffect(tpz.effect.TERNARY_FLOURISH, 1, 0, 60, 0, player:getMerit(tpz.merit.TERNARY_FLOURISH_EFFECT))
     elseif (player:hasStatusEffect(tpz.effect.FINISHING_MOVE_2)) then
         player:delStatusEffect(tpz.effect.FINISHING_MOVE_2)
-        player:addStatusEffect(tpz.effect.CLIMACTIC_FLOURISH, 2, 40, 60 0, 0)
+        player:addStatusEffect(tpz.effect.TERNARY_FLOURISH, 2, 0, 60, 0, player:getMerit(tpz.merit.TERNARY_FLOURISH_EFFECT))
     elseif (player:hasStatusEffect(tpz.effect.FINISHING_MOVE_3)) then
         player:delStatusEffect(tpz.effect.FINISHING_MOVE_3)
-        player:addStatusEffect(tpz.effect.CLIMACTIC_FLOURISH, 3, 60, 60 0, 0)
+        player:addStatusEffect(tpz.effect.TERNARY_FLOURISH, 3, 0, 60, 0, player:getMerit(tpz.merit.TERNARY_FLOURISH_EFFECT))
     elseif (player:hasStatusEffect(tpz.effect.FINISHING_MOVE_4)) then
         player:delStatusEffect(tpz.effect.FINISHING_MOVE_4)
-        player:addStatusEffect(tpz.effect.CLIMACTIC_FLOURISH, 4, 80, 60 0, 0)
+        player:addStatusEffect(tpz.effect.FINISHING_MOVE_1, 1, 0, 7200)
+        player:addStatusEffect(tpz.effect.TERNARY_FLOURISH, 3, 0, 60, 0, player:getMerit(tpz.merit.TERNARY_FLOURISH_EFFECT))
     elseif (player:hasStatusEffect(tpz.effect.FINISHING_MOVE_5)) then
         player:delStatusEffect(tpz.effect.FINISHING_MOVE_5)
-        player:addStatusEffect(tpz.effect.CLIMACTIC_FLOURISH, 5, 100, 60 0, 0)
+        player:addStatusEffect(tpz.effect.FINISHING_MOVE_2, 1, 0, 7200)
+        player:addStatusEffect(tpz.effect.TERNARY_FLOURISH, 3, 0, 60, 0, player:getMerit(tpz.merit.TERNARY_FLOURISH_EFFECT))
     end
 
 end

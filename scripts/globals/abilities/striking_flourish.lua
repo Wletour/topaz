@@ -53,5 +53,4 @@ function onUseAbility(player, target, ability)
         player:addStatusEffect(tpz.effect.FINISHING_MOVE_2, 1, 0, 7200)
         player:addStatusEffect(tpz.effect.STRIKING_FLOURISH, 3, 0, 60, 0, player:getMerit(tpz.merit.STRIKING_FLOURISH_EFFECT))
     end
-
 end

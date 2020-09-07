@@ -50,6 +50,9 @@ INSERT INTO `mob_skill_lists` VALUES ('Aern',3,1380);
 INSERT INTO `mob_skill_lists` VALUES ('Aern',3,1381);
 INSERT INTO `mob_skill_lists` VALUES ('Aern',3,1382);
 INSERT INTO `mob_skill_lists` VALUES ('Aern',3,1387);
+INSERT INTO `mob_skill_lists` VALUES ('Aern',3,3411);
+INSERT INTO `mob_skill_lists` VALUES ('Aern',3,3412);
+INSERT INTO `mob_skill_lists` VALUES ('Aern',3,3413);
 INSERT INTO `mob_skill_lists` VALUES ('Ahriman',4,548);
 INSERT INTO `mob_skill_lists` VALUES ('Ahriman',4,549);
 INSERT INTO `mob_skill_lists` VALUES ('Ahriman',4,550);
@@ -1050,7 +1053,7 @@ INSERT INTO `mob_skill_lists` VALUES ('Soulflayer_NM',234,1963); -- Mind Blast
 INSERT INTO `mob_skill_lists` VALUES ('Soulflayer_NM',234,1966); -- Mind Purge
 INSERT INTO `mob_skill_lists` VALUES ('Soulflayer_NM',234,1967); -- Tribulation
 INSERT INTO `mob_skill_lists` VALUES ('Soulflayer_NM',234,1968); -- Immortal Anathema
-INSERT INTO `mob_skill_lists` VALUES ('Soulflayer_NM',234,1969); -- Reprobation
+-- INSERT INTO `mob_skill_lists` VALUES ('Soulflayer_NM',234,1969); -- Reprobation
 INSERT INTO `mob_skill_lists` VALUES ('Spheroid',235,561);
 INSERT INTO `mob_skill_lists` VALUES ('Spheroid',235,984);
 INSERT INTO `mob_skill_lists` VALUES ('Spider',236,810);
@@ -1900,11 +1903,13 @@ INSERT INTO `mob_skill_lists` VALUES ('TiamatWyrm',393,1283);
 INSERT INTO `mob_skill_lists` VALUES ('TiamatWyrm',393,1284);
 INSERT INTO `mob_skill_lists` VALUES ('TiamatWyrm',393,1285);
 INSERT INTO `mob_skill_lists` VALUES ('TiamatWyrm',393,1286);
-INSERT INTO `mob_skill_lists` VALUES ('Ealdnarche (Celestial Nexus, phase 2)',394,985); -- Stellar Burst
-INSERT INTO `mob_skill_lists` VALUES ('Ealdnarche (Celestial Nexus, phase 2)',394,986); -- Vortex
-INSERT INTO `mob_skill_lists` VALUES ('Ealdnarche (Celestial Nexus, phase 2)',394,988); -- Warp In
-INSERT INTO `mob_skill_lists` VALUES ('Ealdnarche (Celestial Nexus, phase 2)',394,989); -- Warp Out
-INSERT INTO `mob_skill_lists` VALUES ('Ealdnarche (Celestial Nexus, phase 2)',394,1006); -- Omega Javelin
+INSERT INTO `mob_skill_lists` VALUES ('Humanoid-Hume',394,936);
+INSERT INTO `mob_skill_lists` VALUES ('Humanoid-Hume',394,962);
+INSERT INTO `mob_skill_lists` VALUES ('Humanoid-Hume',394,985);
+INSERT INTO `mob_skill_lists` VALUES ('Humanoid-Hume',394,986);
+INSERT INTO `mob_skill_lists` VALUES ('Humanoid-Hume',394,988);
+INSERT INTO `mob_skill_lists` VALUES ('Humanoid-Hume',394,989);
+INSERT INTO `mob_skill_lists` VALUES ('Humanoid-Hume',394,1006);
 INSERT INTO `mob_skill_lists` VALUES ('Calcabrina',395,537);
 -- 396: Bedrock_Barry
 INSERT INTO `mob_skill_lists` VALUES ('Qu_Vho_Deathhurler',397,611);
@@ -2076,6 +2081,7 @@ INSERT INTO `mob_skill_lists` VALUES ('Hurkan',460,3074);
 INSERT INTO `mob_skill_lists` VALUES ('Hurkan',460,3075);
 INSERT INTO `mob_skill_lists` VALUES ('Hurkan',460,3076);
 INSERT INTO `mob_skill_lists` VALUES ('Hurkan',460,3077);
+INSERT INTO `mob_skill_lists` VALUES ('Hurkan',460,3078);
 INSERT INTO `mob_skill_lists` VALUES ('Achuka',461,3020);
 INSERT INTO `mob_skill_lists` VALUES ('Achuka',461,3021);
 INSERT INTO `mob_skill_lists` VALUES ('Achuka',461,3022);
@@ -2107,6 +2113,7 @@ INSERT INTO `mob_skill_lists` VALUES ('Snapweed',464,3097);
 INSERT INTO `mob_skill_lists` VALUES ('Snapweed',464,3098);
 INSERT INTO `mob_skill_lists` VALUES ('Snapweed',464,3099);
 INSERT INTO `mob_skill_lists` VALUES ('Snapweed',464,3101);
+INSERT INTO `mob_skill_lists` VALUES ('Snapweed',464,3102);
 INSERT INTO `mob_skill_lists` VALUES ('Yumcax',465,3057);
 INSERT INTO `mob_skill_lists` VALUES ('Yumcax',465,3058);
 INSERT INTO `mob_skill_lists` VALUES ('Yumcax',465,3059);
@@ -2293,6 +2300,8 @@ INSERT INTO `mob_skill_lists` VALUES ('Ashrakk',493,3365);
 INSERT INTO `mob_skill_lists` VALUES ('Ashrakk',493,3366);
 INSERT INTO `mob_skill_lists` VALUES ('Ashrakk',493,3367);
 INSERT INTO `mob_skill_lists` VALUES ('Ashrakk',493,3368);
+INSERT INTO `mob_skill_lists` VALUES ('Sekhmet',494,3414);
+INSERT INTO `mob_skill_lists` VALUES ('Sekhmet',494,3415);
 INSERT INTO `mob_skill_lists` VALUES ('Sekhmet',494,483);
 INSERT INTO `mob_skill_lists` VALUES ('Astral_Flow_Pet',495,839);
 INSERT INTO `mob_skill_lists` VALUES ('Astral_Flow_Pet',495,912);
@@ -3626,4 +3635,4 @@ INSERT INTO `mob_skill_lists` VALUES ('Ealdnarche (Apoc Nigh)',1144,986); -- Vor
 INSERT INTO `mob_skill_lists` VALUES ('Ealdnarche (Apoc Nigh)',1144,988); -- Warp In (Works the same as Ealdnarche's)
 INSERT INTO `mob_skill_lists` VALUES ('Ealdnarche (Apoc Nigh)',1144,989); -- Warp Out (Works the same as Ealdnarche's)
 INSERT INTO `mob_skill_lists` VALUES ('Ealdnarche (Apoc Nigh)',1144,1006); -- Omega Javelin
--- Next available ID: 1143
+-- Next available ID: 1145
