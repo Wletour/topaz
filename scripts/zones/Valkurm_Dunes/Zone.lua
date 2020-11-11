@@ -8,7 +8,6 @@ require("scripts/quests/i_can_hear_a_rainbow")
 require("scripts/globals/chocobo_digging")
 require("scripts/globals/conquest")
 require("scripts/globals/missions")
-require("scripts/globals/weather")
 require("scripts/globals/status")
 -----------------------------------
 
@@ -28,9 +27,8 @@ function onZoneIn(player, prevZone)
     end
 
     if quests.rainbow.onZoneIn(player) then
-        cs = 3;
-    elseif (player:getCurrentMission(WINDURST) == tpz.mission.id.windurst.VAIN and player:getCharVar("MissionStatus") ==
-        1) then
+        cs = 3
+    elseif player:getCurrentMission(WINDURST) == tpz.mission.id.windurst.VAIN and player:getCharVar("MissionStatus") == 1 then
         cs = 5
     end
 

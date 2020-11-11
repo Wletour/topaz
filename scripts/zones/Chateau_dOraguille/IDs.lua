@@ -16,6 +16,7 @@ zones[tpz.zone.CHATEAU_DORAGUILLE] =
         KEYITEM_OBTAINED        = 6599, -- Obtained key item: <keyitem>.
         KEYITEM_LOST            = 6600, -- Lost key item: <keyitem>.
         NOT_HAVE_ENOUGH_GIL     = 6601, -- You do not have enough gil.
+        YOU_LEARNED_TRUST       = 6659, -- You learned Trust: <name>!
         HALVER_OFFSET           = 6793, -- The princess is always speaking of your deeds for the Kingdom. Everyone here is counting on you, <name>.
         LIGHTBRINGER_EXTRA      = 6836, -- Lightbringer has been found! This is the happiest day in my tenure as monarlais!
         CONQUEST_BASE           = 6879, -- Tallying conquest results...
