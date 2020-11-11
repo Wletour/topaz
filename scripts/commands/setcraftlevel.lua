@@ -1,21 +1,21 @@
 ---------------------------------------------------------------------------------------------------
--- func: setcraftRank <craft skill or ID> <craft rank> <target>
--- desc: sets target's RANK of specified craft skill
+-- func: setcraftlevel <craft skill or ID> <craft level> <target>
+-- desc: sets target's level of specified craft skill
 ---------------------------------------------------------------------------------------------------
 require("scripts/globals/status")
 
 cmdprops =
 {
     permission = 3,
-    parameters = "sss"
+    parameters = "sis"
 }
 
 function error(player, msg)
     player:PrintToPlayer(msg)
-    player:PrintToPlayer("!setcraftrank <craft skill or ID> <craft rank> {player}")
+    player:PrintToPlayer("!setcraftlevel <craft skill or ID> <craft level> {player}")
 end
 
-function onTrigger(player, craftName, tier, target)
+function onTrigger(player, craftName, level, target)
     if craftName == nil then
         error(player, "You must specify a craft skill to set!")
         return
@@ -29,14 +29,14 @@ function onTrigger(player, craftName, tier, target)
         return
     end
 
-    if tier == nil then
-        error(player, "You must specify a rank to set the craft skill to.")
+    if level == nil then
+        error(player, "You must specify a level to set the craft skill to.")
         return
     end
 
-    local craftRank = tonumber(tier) or tpz.craftRank[string.upper(tier)]
-    if craftRank == nil then
-        error(player, "Invalid craft rank!")
+    local craftlevel = tonumber(level) * 10 -- or tpz.craftlevel[string.upper(level)]
+    if craftlevel == nil then
+        error(player, "Invalid craft level!")
         return
     end
 
@@ -59,9 +59,9 @@ function onTrigger(player, craftName, tier, target)
         end
     end
 
-    targ:setSkillRank(skillID, craftRank)
-    targ:PrintToPlayer(string.format("Your %s craft skill rank has been adjusted to: %s", craftName, craftRank))
+    targ:setSkillLevel(skillID, craftlevel)
+    targ:PrintToPlayer(string.format("Your %s level has been adjusted to: %i", craftName, craftlevel / 10))
     if targ ~= player then
-        player:PrintToPlayer(string.format("%s's new skillID '%s' rank: %u", targ:getName(), craftName, targ:getSkillRank(skillID)))
+        player:PrintToPlayer(string.format("%s's new '%s' level: %i", targ:getName(), craftName, craftlevel / 10))
     end
 end

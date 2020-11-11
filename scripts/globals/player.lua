@@ -123,6 +123,9 @@ local function CharCreate(player)
     end
 
     player:addItem(536) -- adventurer coupon
+	player:addLSpearl("Acilization");
+	player:addItem(11811) -- Destrier Beret
+	player:addItem(10293) -- Chocobo Shirt
     player:addTitle(tpz.title.NEW_ADVENTURER)
     player:setCharVar("MoghouseExplication", 1) -- needs Moghouse intro
     player:setCharVar("spokeKindlix", 1) -- Kindlix introduction
@@ -142,9 +145,16 @@ function onGameIn(player, firstLogin, zoning)
         if firstLogin then
             CharCreate(player)
         end
+		
+		if (player:getGMLevel() == 0) then
+            --player:PrintToArea(string.format("%s has logged on!", player:getName()), tpz.msg.channel.SHOUT, tpz.msg.area.SYSTEM, string.format("%s", player:getName()));
+			player:messageSystem(string.format("%s has logged in...", player:getName()));
+		end
+		
     else
         -- things checked ONLY during zone in go here
     end
+	
 
     -- apply mods from gearsets (scripts/globals/gear_sets.lua)
     checkForGearSet(player)
@@ -175,11 +185,6 @@ function onGameIn(player, firstLogin, zoning)
         player:addHP(50000)
         player:setMP(50000)
     end
-    
-    -- !immortal
-    if player:getCharVar("Immortal") == 1 then
-        player:setUnkillable(true)
-    end
 
     -- !hide
     if player:getCharVar("GMHidden") == 1 then
@@ -188,6 +193,7 @@ function onGameIn(player, firstLogin, zoning)
 
     -- remember time player zoned in (e.g., to support zone-in delays)
     player:setLocalVar("ZoneInTime", os.time())
+	
 end
 
 function onPlayerLevelUp(player)
